@@ -1,8 +1,19 @@
 import { Component } from '@angular/core';
-export class Hero {
-  id: number;
-  name: string;
-}
+import { Hero } from './hero';
+
+const HEROES: Hero[] = [
+  { id: 11, name: 'Musulman' },
+  { id: 12, name: 'Cameraman' },
+  { id: 13, name: 'Hughjackman' },
+  { id: 14, name: 'Kouignaman' },
+  { id: 15, name: 'Nicolekidman' },
+  { id: 16, name: 'RubberMan' },
+  { id: 17, name: 'Dynama' },
+  { id: 18, name: 'Dr IQ' },
+  { id: 19, name: 'Magma' },
+  { id: 20, name: 'Tornado' }
+];
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,14 +28,7 @@ export class Hero {
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </li>
   </ul>
-  <div *ngIf="selectedHero">
-    <h2>{{selectedHero.name}} details!</h2>
-    <div><label>id: </label>{{selectedHero.id}}</div>
-    <div>
-      <label>name: </label>
-      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </div>
-  </div>
+  <hero-detail [hero]="selectedHero"></hero-detail>
 `,
 styles: [`
 .selected {
@@ -86,15 +90,4 @@ export class AppComponent {
     this.selectedHero = hero;
   }
 }
-      const HEROES: Hero[] = [
-      { id: 11, name: 'Musulman' },
-      { id: 12, name: 'Cameraman' },
-      { id: 13, name: 'Hughjackman' },
-      { id: 14, name: 'Kouignaman' },
-      { id: 15, name: 'Nicolekidman' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
-    ];
+
